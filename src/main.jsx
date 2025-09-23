@@ -1,10 +1,28 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+
+// 1 - Configurando o router
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+// 2 - Importando as rotas
+import App from './App.jsx';
+import Login from './routes/Login/Login.jsx';
+import Cadastro from './routes/Cadastro/Cadastro.jsx';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App><Login /></App>,
+  },
+  {
+    path: "cadastro",
+    element: <App><Cadastro /></App>,
+  },
+]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router}/>
   </StrictMode>,
 )
