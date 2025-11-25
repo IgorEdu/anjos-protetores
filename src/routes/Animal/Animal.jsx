@@ -14,6 +14,13 @@ const Animal = () => {
   const [erro, setErro] = useState(null);
 
 useEffect(() => {
+
+  const token = localStorage.getItem('token');
+
+        if (!token) {
+            navigate('/login');
+            return;
+        }
   const buscarAnimal = async () => {
     try {
       setLoading(true);
