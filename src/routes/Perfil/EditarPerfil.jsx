@@ -13,7 +13,7 @@ export default function EditarPerfil() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await api.get("/api/pvt/users");
+        const { data } = await api.get("/api/pvt/adopters/profile");
         setId(data.id);
         setForm({
           name: data.name ?? "",
@@ -38,7 +38,7 @@ export default function EditarPerfil() {
     setSaving(true);
     try {
       // o backend espera AdopterUpdatePayload no body
-      await api.put(`/api/adopters/${id}`, form);
+      await api.put(`/api/pvt/adopters/${id}`, form);
       alert("Dados atualizados com sucesso!");
       nav("/perfil");
     } catch (e) {

@@ -13,7 +13,7 @@ export default function Perfil() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await api.get("/api/pvt/users/profile");
+        const { data } = await api.get("/api/pvt/adopters/profile");
         setUser(data);
       } catch (e) {
         console.error(e);
@@ -35,7 +35,7 @@ export default function Perfil() {
     const ok = window.confirm("Tem certeza que deseja excluir sua conta? Essa ação é irreversível.");
     if (!ok) return;
     try {
-      await api.delete(`/api/adopters/${user.id}`);
+      await api.delete(`/api/pvt/adopters/${user.id}`);
       localStorage.removeItem("token");
       alert("Conta excluída com sucesso.");
       nav("/login", { replace: true });
