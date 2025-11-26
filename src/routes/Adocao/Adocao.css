@@ -118,3 +118,20 @@
     padding: 80px 0;
     /* Espaço para o navbar fixo */
 }
+
+/* Ajustes adicionais para a imagem do animal — responsiva e bem encaixada */
+.animal-foto {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;        /* mantém a proporção e só corta bordas */
+    object-position: center;  /* centraliza a imagem */
+    display: block;
+    background-color: #f2f2f2; /* fundo cinza claro caso a foto seja transparente */
+}
+
+/* Ajuste responsivo: telas menores */
+@media (max-width: 480px) {
+    .animal-foto {
+        height: 200px;
+    }
+}

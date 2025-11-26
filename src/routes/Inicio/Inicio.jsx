@@ -27,7 +27,7 @@ const Inicio = () => {
                     breed: animal.race.name || "Sem raça",
                     // age: animal.age || animal.idade || "Idade não informada",
                     // size: animal.size || animal.porte || "Médio",
-                    image: animal.imageUrl || animal.imagem || "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80"
+                    image: animal.photoUrl || "https://via.placeholder.com/400x300?text=Sem+Foto"
                 }));
 
                 setDogs(formattedDogs);

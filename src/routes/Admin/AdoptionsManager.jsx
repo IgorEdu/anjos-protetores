@@ -176,8 +176,30 @@ const AdoptionsManager = () => {
       {selectedAnimalDetails && (
         <div className="animal-details-card">
           <h3>Detalhes do Animal</h3>
+
+          {/* FOTO */}
+          <div style={{ marginBottom: "15px" }}>
+            <img
+              src={selectedAnimalDetails.photoUrl || "https://via.placeholder.com/200?text=Sem+Foto"}
+              alt={selectedAnimalDetails.name}
+              style={{
+                width: "200px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "10px",
+                border: "1px solid #ccc"
+              }}
+            />
+          </div>
+
           <p><strong>Nome:</strong> {selectedAnimalDetails.name}</p>
           <p><strong>Status:</strong> {selectedAnimalDetails.status}</p>
+
+          {/* NOVOS CAMPOS */}
+          <p><strong>Idade:</strong> {selectedAnimalDetails.age ?? "Não informada"}</p>
+          <p><strong>Sexo:</strong> {selectedAnimalDetails.gender ?? "Não informado"}</p>
+          <p><strong>Porte:</strong> {selectedAnimalDetails.animalSize ?? "Não informado"}</p>
+
           <p><strong>Espécie:</strong> {selectedAnimalDetails.specie?.name}</p>
           <p><strong>Raça:</strong> {selectedAnimalDetails.race?.name}</p>
           <p><strong>Descrição:</strong> {selectedAnimalDetails.description}</p>

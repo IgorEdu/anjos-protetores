@@ -575,3 +575,32 @@ body {
 }
 
 /* Fim Classes globais */
+
+/* Ajuste responsivo específico para imagens do carrossel */
+.dog-image {
+    width: 100%;
+    height: 300px; /* já existe, mas reafirmamos para consistência */
+    overflow: hidden;
+    position: relative;
+}
+
+.dog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* garante corte elegante */
+    object-position: center; /* centraliza o conteúdo principal */
+    display: block;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+    .dog-image {
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dog-image {
+        height: 180px;
+    }
+}

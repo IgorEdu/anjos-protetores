@@ -108,3 +108,23 @@
 .animal-details-card h3 {
   margin-bottom: 10px;
 }
+
+/* FOTO DO ANIMAL — Detalhes no painel lateral */
+.animal-details-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;      /* mantém proporção e corta o excesso */
+    object-position: center;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2; /* fundo para imagens transparentes */
+    display: block;
+}
+
+/* Ajuste responsivo */
+@media (max-width: 480px) {
+    .animal-details-card img {
+        width: 150px;
+        height: 150px;
+    }
+}

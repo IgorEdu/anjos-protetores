@@ -17,6 +17,11 @@ export const createAnimal = async (animalData) => {
     return response.data;
 };
 
+export async function updateAnimal(id, payload) {
+    const { data } = await api.put(`/api/pvt/animals/${id}`, payload);
+    return data;
+}
+
 
 export const deleteAnimal = async (id) => {
     await api.delete(`/api/pvt/animals/${id}`);

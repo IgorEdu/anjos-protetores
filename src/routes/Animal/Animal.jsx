@@ -64,7 +64,7 @@ useEffect(() => {
         throw new Error("Falha ao enviar pedido");
       }
 
-      alert("Pedido de adoção enviado com sucesso!");
+      alert("Pedido de adoção enviado com sucesso! Entraremos em contato em breve via e-mail ou whatsapp para te comunicar nossa decisão.");
     } catch (error) {
       console.error(error);
       alert("Erro ao enviar o pedido de adoção");
@@ -89,10 +89,10 @@ useEffect(() => {
     description: animal.description,
     specie: animal.specie?.name || 'Espécie não informada',
     race: animal.race?.name || 'Raça não informada',
-    fotoUrl: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80',
-    idade: 'Não informado',
-    sexo: 'Não informado',
-    porte: 'Não informado'
+    fotoUrl: animal.photoUrl || "https://via.placeholder.com/500x350?text=Sem+Foto",
+    idade: animal.age ? `${animal.age} anos` : "Não informado",
+    sexo: animal.gender || "Não informado",
+    porte: animal.animalSize || "Não informado"
   };
 
   return (
