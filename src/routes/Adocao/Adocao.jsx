@@ -90,7 +90,7 @@ const Adocao = () => {
                             animais.map(animal => (
                                 <div className="animal-card" key={animal.id}>
                                     <img
-                                        src={animal.fotoUrl || 'https://premierpet.com.br/wp-content/uploads/2025/04/model-banner-dicasprimeirocachorro-mobile-v1.png'}
+                                        src={animal.photoUrl || 'https://via.placeholder.com/300x200?text=Sem+Foto'}
                                         alt={animal.nome}
                                         className="animal-foto"
                                     />
@@ -98,7 +98,11 @@ const Adocao = () => {
                                         <h3>{animal.nome}</h3>
                                         <p><strong>Espécie:</strong> {animal.specie.name || 'Não informada'}</p>
                                         <p><strong>Raça:</strong> {animal.race?.name || 'Não informada'}</p>
-                                        <p className="animal-descricao">{animal.description || 'Um amiguinho muito especial!'}</p>
+                                        <p><strong>Idade:</strong> {animal.age ? `${animal.age} anos` : 'Não informada'}</p>
+                                        <p><strong>Porte:</strong> {animal.animalSize || 'Não informado'}</p>
+                                        <p><strong>Sexo:</strong> {animal.gender || 'Não informado'}</p>
+
+                                        <p className="animal-descricao"><strong>Descrição:</strong> {animal.description || 'Um amiguinho muito especial!'}</p>
 
                                         {/* BOTÃO ALTERADO AQUI */}
                                         <button
