@@ -13,6 +13,8 @@ const Animal = () => {
   const [loading, setLoading] = useState(true);
   const [erro, setErro] = useState(null);
 
+const [pedidoEnviado, setPedidoEnviado] = useState(false);
+
 useEffect(() => {
 
   const token = localStorage.getItem('token');
@@ -48,6 +50,8 @@ useEffect(() => {
   const handleAdotar = async () => {
     const token = localStorage.getItem("token");
 
+    if (pedidoEnviado) return;
+
     try {
       const response = await fetch(
         `http://localhost:8080/api/pub/animals/request/${id}`,
@@ -63,6 +67,8 @@ useEffect(() => {
       if (!response.ok) {
         throw new Error("Falha ao enviar pedido");
       }
+
+      setPedidoEnviado(true);
 
       alert("Pedido de adoção enviado com sucesso! Entraremos em contato em breve via e-mail ou whatsapp para te comunicar nossa decisão.");
     } catch (error) {
@@ -144,8 +150,21 @@ useEffect(() => {
                 <p>{animalDisplay.description}</p>
               </div>
 
-              <button className="btn-adotar-grande" onClick={handleAdotar}>
-                <FaPaw /> Quero Adotar o {animalDisplay.name}
+              <button 
+                className={`btn-adotar-grande ${pedidoEnviado ? 'btn-sucesso' : ''}`} 
+                onClick={handleAdotar}
+                disabled={pedidoEnviado} // Desabilita o botão após o sucesso
+                style={pedidoEnviado ? { backgroundColor: '#4CAF50', cursor: 'default' } : {}} // Estilo inline rápido para verde
+              >
+                {pedidoEnviado ? (
+                  // Texto quando o pedido foi feito
+                  <span>Requisição feita com sucesso!</span>
+                ) : (
+                  // Texto original
+                  <>
+                    <FaPaw /> Quero Adotar o {animalDisplay.name}
+                  </>
+                )}
               </button>
             </div>
           </div>
