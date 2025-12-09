@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { FaPaw } from 'react-icons/fa';
 import { TiArrowBackOutline } from 'react-icons/ti';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import './Animal.css';
+import api from '../../services/api';
 
 const Animal = () => {
   const { id } = useParams();
@@ -30,28 +31,20 @@ const Animal = () => {
         setLoading(true);
 
         // 1. Busca os detalhes do animal
-        const responseAnimal = await fetch(`http://localhost:8080/api/pub/animals/${id}`);
-        if (!responseAnimal.ok) {
+        const responseAnimal = await api.get(`/api/pub/animals/${id}`);
+                if (!responseAnimal.ok) {
           throw new Error("Erro ao buscar animal");
         }
-        const dataAnimal = await responseAnimal.json();
+        const dataAnimal = responseAnimal.data;
         setAnimal(dataAnimal);
 
-        // 2. Verifica se o usuário JÁ enviou um pedido para este animal
-        // Isso garante que o botão fique verde mesmo se der F5 na página
-        const responseCheck = await fetch(
-            `http://localhost:8080/api/pub/animals/request/check/${id}`,
-            {
-                headers: { 
-                  "Authorization": `Bearer ${token}`,
-                  "Content-Type": "application/json"
-                }
-            }
-        );
+                // 2. Verifica se o usuário JÁ enviou um pedido para este animal
+                // Isso garante que o botão fique verde mesmo se der F5 na página
+        const responseCheck = await api.get(`/api/pub/animals/request/check/${id}`);
         
-        if (responseCheck.ok) {
-            const jaPediu = await responseCheck.json(); // Retorna true ou false
-            setPedidoEnviado(jaPediu); // Atualiza o estado inicial do botão
+        if (responseCheck.status === 200) {
+            const jaPediu = responseCheck.data;
+            setPedidoEnviado(jaPediu);
         }
 
       } catch (error) {
@@ -74,21 +67,12 @@ const Animal = () => {
     if (pedidoEnviado) return;
 
     try {
-      const response = await fetch(
-        `http://localhost:8080/api/pub/animals/request/${id}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            ...(token ? { "Authorization": `Bearer ${token}` } : {})
-          }
-        }
-      );
+      await api.post(`/api/pub/animals/request/${id}`);
 
-      if (!response.ok) {
+            if (!response.ok) {
         throw new Error("Falha ao enviar pedido");
       }
-
+      
       // Atualiza o estado visual imediatamente
       setPedidoEnviado(true);
 

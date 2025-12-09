@@ -1,4 +1,4 @@
-.navbar {
+﻿.navbar {
     position: fixed;
     top: 0;
     width: 100%;
@@ -8,8 +8,6 @@
     transition: all 0.3s ease;
     padding: 15px 0;
 }
-
-.admin-btn {}
 
 .navbar.scrolled {
     padding: 10px 0;
@@ -97,7 +95,6 @@ a {
 .admin-btn {
     background: transparent;
     border: 2px solid #5a3d2b;
-    /* Cor marrom do texto do menu */
     color: #5a3d2b;
 }
 
@@ -119,4 +116,71 @@ a {
 
 .logout-btn:hover {
     background: #a03308;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .nav-item {
+        margin: 0 10px;
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.5rem;
+    }
+    
+    .login-btn,
+    .adopt-btn,
+    .profile-btn,
+    .admin-btn,
+    .logout-btn {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .nav-buttons {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.3rem;
+    }
+    
+    .login-btn,
+    .adopt-btn,
+    .profile-btn,
+    .admin-btn,
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 10px;
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.1rem;
+    }
+    
+    .nav-buttons {
+        gap: 5px;
+    }
+    
+    .login-btn,
+    .adopt-btn,
+    .profile-btn,
+    .admin-btn,
+    .logout-btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
 }

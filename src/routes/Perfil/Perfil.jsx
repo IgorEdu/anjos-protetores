@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { TiArrowBackOutline } from "react-icons/ti";
@@ -9,6 +9,14 @@ export default function Perfil() {
   const [user, setUser] = useState(null);
   const [busy, setBusy] = useState(true);
   const nav = useNavigate();
+
+  // Remove padding-top global enquanto esta tela estiver montada
+  useEffect(() => {
+    document.body.classList.add("no-navbar-padding");
+    return () => {
+      document.body.classList.remove("no-navbar-padding");
+    };
+  }, []);
 
   useEffect(() => {
     (async () => {

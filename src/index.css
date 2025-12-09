@@ -1,0 +1,34 @@
+﻿:root{
+  /* Ajuste este valor conforme a altura real do seu navbar */
+  --navbar-height: 80px;
+}
+
+/* Espaço global para navbar fixa */
+body {
+  padding-top: var(--navbar-height);
+  box-sizing: border-box;
+}
+
+/* Se uma tela específica precisar remover o padding (ex.: perfil) */
+body.no-navbar-padding {
+  padding-top: 0 !important;
+}
+
+/* Valores responsivos caso o navbar ocupe menos espaço em telas menores */
+@media (max-width: 992px) {
+  :root { --navbar-height: 72px; }
+}
+@media (max-width: 768px) {
+  :root { --navbar-height: 68px; }
+}
+@media (max-width: 480px) {
+  :root { --navbar-height: 60px; }
+}
+
+/* Segurança: garantir que containers principais não tenham margin-top negativa */
+.default-container,
+.inicio-container,
+.section-animal,
+.listagem-container {
+  box-sizing: border-box;
+}

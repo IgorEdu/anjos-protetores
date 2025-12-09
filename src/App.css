@@ -1,9 +1,8 @@
-* {
+﻿* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Helvetica;
-  /* text-shadow: #000 0.5px 0.5px; */
 }
 
 .App {
@@ -21,4 +20,23 @@
   width: 80%;
   display: flex;
   margin: 0 auto;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .default-container {
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .default-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .default-container {
+        width: 95%;
+    }
 }
