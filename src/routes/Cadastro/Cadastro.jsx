@@ -1,8 +1,8 @@
-import { FaUser, FaLock, FaEnvelope } from 'react-icons/fa';
+﻿import { FaUser, FaLock, FaEnvelope } from 'react-icons/fa';
 import { useState } from 'react';
 import './Cadastro.css';
 import logo from '../../assets/logo.png';
-import axios from 'axios';
+import api from '../../services/api';
 
 const Cadastro = () => {
 
@@ -30,7 +30,7 @@ const Cadastro = () => {
                 address: endereco
             };
 
-            await axios.post('http://localhost:8080/api/pvt/auth/signUp', signUpPayload);
+            await api.post('/api/pvt/auth/signUp', signUpPayload);
 
             alert('Cadastro realizado com sucesso! Agora podes fazer o login.');
             window.location.href = '/login';

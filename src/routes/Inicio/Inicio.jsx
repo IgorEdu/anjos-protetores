@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import './Inicio.css';
 import Navbar from '../Navbar/Navbar';
 import { BiAlignLeft } from 'react-icons/bi';
 import Footer from '../Footer/Footer';
+import api from '../../services/api';
 
 const Inicio = () => {
     const [dogs, setDogs] = useState([]);
@@ -13,18 +14,17 @@ const Inicio = () => {
     useEffect(() => {
         const fetchDogs = async () => {
             try {
-                const response = await fetch('http://localhost:8080/api/pub/animals');
-                
+                const response = await api.get('/api/pub/animals');
                 if (!response.ok) {
                     throw new Error('Falha ao buscar dados');
                 }
-
-                const data = await response.json();
+                
+                const data = response.data;
 
                 const formattedDogs = data.map(animal => ({
                     id: animal.id,
                     name: animal.name || animal.nome, 
-                    breed: animal.race.name || "Sem raça",
+                    breed: animal.race?.name || "Sem raça",
                     // age: animal.age || animal.idade || "Idade não informada",
                     // size: animal.size || animal.porte || "Médio",
                     image: animal.photoUrl || "https://via.placeholder.com/400x300?text=Sem+Foto"

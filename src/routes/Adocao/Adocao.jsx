@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+﻿import React, { useState, useEffect } from 'react';
+import api from '../../services/api';
 import { FaPaw } from 'react-icons/fa';
 import './Adocao.css';
 import Navbar from '../Navbar/Navbar';
@@ -24,11 +24,7 @@ const Adocao = () => {
                 setLoading(true);
                 setError(null);
 
-                const response = await axios.get('http://localhost:8080/api/pub/animals', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
+                const response = await api.get('/api/pub/animals');
 
                 console.log("Animais recebidos:", response.data);
                 setAnimais(response.data);
@@ -96,7 +92,7 @@ const Adocao = () => {
                                     />
                                     <div className="animal-info">
                                         <h3>{animal.nome}</h3>
-                                        <p><strong>Espécie:</strong> {animal.specie.name || 'Não informada'}</p>
+                                        <p><strong>Espécie:</strong> {animal.specie?.name || 'Não informada'}</p>
                                         <p><strong>Raça:</strong> {animal.race?.name || 'Não informada'}</p>
                                         <p><strong>Idade:</strong> {animal.age ? `${animal.age} anos` : 'Não informada'}</p>
                                         <p><strong>Porte:</strong> {animal.animalSize || 'Não informado'}</p>

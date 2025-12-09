@@ -1,9 +1,9 @@
-import { FaUser, FaLock } from 'react-icons/fa';
+﻿import { FaUser, FaLock } from 'react-icons/fa';
 import { useState } from 'react';
 import { TiArrowBackOutline } from "react-icons/ti";
 import './Login.css';
 import logo from '../../assets/logo.png';
-import axios from 'axios';
+import api from '../../services/api';
 
 const Login = () => {
 
@@ -20,7 +20,7 @@ const Login = () => {
         };
 
         // Envia login
-        const response = await axios.post('http://localhost:8080/api/pvt/auth/login', loginPayload);
+        const response = await api.post('/api/pvt/auth/login', loginPayload);
 
         // Pega o token retornado pela API
         const token = response?.data?.token;
@@ -53,7 +53,6 @@ const Login = () => {
                 </div>
                 <h1>Anjos Protetores de Animais Login</h1>
                 <div className='input-field'>
-                    {/* O `onChange` agora atualiza o estado 'email' */}
                     <input type="email" placeholder="E-mail"
                         onChange={(e) => setEmail(e.target.value)} />
                     <FaUser className='icon' />
