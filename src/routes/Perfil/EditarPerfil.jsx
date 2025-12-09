@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import "./EditarPerfil.css";
@@ -14,6 +14,14 @@ export default function EditarPerfil() {
   const [id, setId] = useState(null);
   const [busy, setBusy] = useState(true);
   const [saving, setSaving] = useState(false);
+
+  // Remove padding-top global enquanto esta tela estiver montada
+  useEffect(() => {
+    document.body.classList.add("no-navbar-padding");
+    return () => {
+      document.body.classList.remove("no-navbar-padding");
+    };
+  }, []);
 
   useEffect(() => {
     (async () => {

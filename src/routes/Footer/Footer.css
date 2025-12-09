@@ -1,4 +1,4 @@
-.footer {
+﻿.footer {
   background: #5a3d2b;
   width: 100%;
   color: white;
@@ -10,6 +10,10 @@
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
 }
 
 .footer-section {
@@ -75,8 +79,122 @@
 
 .footer-bottom {
   text-align: center;
-  padding-top: 20px;
+  padding: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: #e0d4c9;
   font-size: 0.9rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .footer-content {
+    padding: 0 15px;
+  }
+  
+  .footer-section {
+    flex: 0 0 48%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 20px;
+  }
+  
+  .footer-content {
+    padding: 0 20px;
+    margin-bottom: 30px;
+  }
+  
+  .footer-section {
+    flex: 0 0 100%;
+    margin-bottom: 30px;
+  }
+  
+  .footer-section h3,
+  .footer-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-section ul li a {
+    font-size: 0.95rem;
+  }
+  
+  .social-links {
+    gap: 12px;
+  }
+  
+  .social-links a {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+  }
+  
+  .social-links a svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .footer-bottom {
+    padding: 15px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 0 15px;
+  }
+  
+  .footer-content {
+    padding: 0 15px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-section {
+    margin-bottom: 20px;
+  }
+  
+  .footer-section h3,
+  .footer-section h4 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 6px;
+  }
+  
+  .footer-section ul li a {
+    font-size: 0.85rem;
+  }
+  
+  .social-links {
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .social-links a {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+  }
+  
+  .social-links a svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .footer-bottom {
+    padding: 12px 15px;
+    font-size: 0.75rem;
+  }
 }

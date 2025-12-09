@@ -1,5 +1,4 @@
-/* Reset e estilos gerais */
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -21,7 +20,6 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
-
 
 /* Hero Section */
 .hero-section {
@@ -167,6 +165,7 @@ body {
     width: 70%;
     height: auto;
 }
+
 .about-image img {
     width: 100%;
     border-radius: 10px;
@@ -514,10 +513,28 @@ body {
 }
 
 /* Responsividade */
+@media (max-width: 1200px) {
+    .carousel-container {
+        max-width: 90%;
+    }
+    
+    .carousel-slide {
+        min-width: 33.333%;
+        flex: 0 0 33.333%;
+    }
+    
+    .process-container,
+    .container-testimonials {
+        width: 90%;
+    }
+}
+
 @media (max-width: 992px) {
     .hero-section {
         flex-direction: column;
         text-align: center;
+        padding: 60px 20px 50px;
+        min-height: auto;
     }
 
     .hero-content {
@@ -525,8 +542,32 @@ body {
         margin-bottom: 40px;
     }
 
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-buttons,
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .about-content {
         flex-direction: column;
+    }
+
+    .about-image {
+        position: relative;
+        left: 0;
+        top: auto;
+        transform: none;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 20px;
     }
 
     .process-steps {
@@ -542,65 +583,255 @@ body {
         flex-direction: column;
     }
 
-    .footer-section {
+    .testimonial {
         flex: 0 0 100%;
-        margin-bottom: 30px;
+    }
+
+    .carousel-slide {
+        min-width: 50%;
+        flex: 0 0 50%;
+    }
+
+    .carousel-container {
+        max-width: 95%;
     }
 }
 
 @media (max-width: 768px) {
-    .nav-menu {
-        display: none;
+    .hero-section {
+        padding: 40px 20px 30px;
     }
 
     .hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
 
-    .hero-buttons,
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
+    .hero-content p {
+        font-size: 1rem;
     }
 
-    .stats {
-        flex-direction: column;
-        gap: 20px;
+    .dogs-section h2 {
+        font-size: 2rem;
     }
-}
 
-/* Classe globais*/
-.font-title {
-    font-size: 2.5rem;
-}
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
 
-/* Fim Classes globais */
+    .process-section h2,
+    .font-title {
+        font-size: 2rem;
+    }
 
-/* Ajuste responsivo específico para imagens do carrossel */
-.dog-image {
-    width: 100%;
-    height: 300px; /* já existe, mas reafirmamos para consistência */
-    overflow: hidden;
-    position: relative;
-}
+    .process-container,
+    .container-testimonials {
+        width: 95%;
+    }
 
-.dog-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;    /* garante corte elegante */
-    object-position: center; /* centraliza o conteúdo principal */
-    display: block;
-}
+    .carousel-slide {
+        min-width: 100%;
+        flex: 0 0 100%;
+    }
 
-/* Ajuste para telas menores */
-@media (max-width: 768px) {
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+
+    .carousel-btn.prev {
+        left: 10px;
+    }
+
+    .carousel-btn.next {
+        right: 10px;
+    }
+
     .dog-image {
         height: 220px;
+    }
+
+    .step-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+
+    .about-section h2 {
+        font-size: 2rem;
+    }
+
+    .about-text-content {
+        width: 100%;
+    }
+
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+
+    .cta-content p {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
+    .hero-section {
+        padding: 20px 15px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .dogs-section {
+        padding: 40px 0;
+    }
+
+    .dogs-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+
     .dog-image {
         height: 180px;
     }
+
+    .dog-info {
+        padding: 15px;
+    }
+
+    .dog-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .carousel-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+
+    .carousel-indicators {
+        margin-top: 10px;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+        margin: 0 3px;
+    }
+
+    .about-section {
+        padding: 40px 0;
+        min-height: auto;
+    }
+
+    .about-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+    }
+
+    .stat h3 {
+        font-size: 2rem;
+    }
+
+    .stat p {
+        font-size: 0.85rem;
+    }
+
+    .process-section {
+        padding: 40px 0;
+    }
+
+    .process-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .step {
+        padding: 10px;
+    }
+
+    .step-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .step h3 {
+        font-size: 1rem;
+    }
+
+    .step p {
+        font-size: 0.85rem;
+    }
+
+    .testimonials-section {
+        padding: 40px 0;
+    }
+
+    .font-title {
+        font-size: 1.5rem;
+    }
+
+    .testimonial {
+        padding: 20px;
+    }
+
+    .testimonial-content {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-author h4 {
+        font-size: 0.95rem;
+    }
+
+    .cta-section {
+        padding: 40px 0;
+    }
+
+    .cta-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-content p {
+        font-size: 0.9rem;
+    }
+
+    .view-all-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+/* Espaço para navbar fixa */
+.inicio-container {
+  padding-top: 80px; /* ajuste se seu header for maior/menor */
+}
+
+/* Ajustes responsivos para o padding do topo */
+@media (max-width: 768px) {
+  .inicio-container { padding-top: 70px; }
+}
+@media (max-width: 480px) {
+  .inicio-container { padding-top: 60px; }
 }

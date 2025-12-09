@@ -1,4 +1,4 @@
-.detalhes-wrapper {
+﻿.detalhes-wrapper {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -10,7 +10,6 @@
   margin-top: 20px;
 }
 
-/* Coluna da Imagem */
 .detalhes-imagem-container {
   width: 100%;
   height: 500px;
@@ -22,14 +21,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.3s ease;
+  display: block;
 }
 
 .detalhes-foto:hover {
   transform: scale(1.02);
 }
 
-/* Coluna das Informações */
 .detalhes-info-container {
   display: flex;
   flex-direction: column;
@@ -46,6 +46,7 @@
   display: flex;
   gap: 10px;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .tag {
@@ -56,8 +57,15 @@
   text-transform: uppercase;
 }
 
-.tag.especie { background-color: #FFE0B2; color: #E65100; }
-.tag.raca { background-color: #E1F5FE; color: #0277BD; }
+.tag.especie { 
+  background-color: #FFE0B2; 
+  color: #E65100; 
+}
+
+.tag.raca { 
+  background-color: #E1F5FE; 
+  color: #0277BD; 
+}
 
 .info-grid {
   display: grid;
@@ -97,7 +105,6 @@
   margin-bottom: 40px;
 }
 
-
 .btn-adotar-grande {
   background-color: #D8692E; 
   color: white;
@@ -120,19 +127,8 @@
   transform: translateY(-2px);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .detalhes-wrapper {
-      grid-template-columns: 1fr;
-      padding: 20px;
-  }
-  .detalhes-imagem-container {
-      height: 300px;
-  }
-
-  .detalhes-titulo {
-      font-size: 2rem;
-  }
+.btn-adotar-grande:disabled {
+  cursor: default;
 }
 
 .section-animal {
@@ -165,32 +161,179 @@
   transform: translateX(-3px);
 }
 
-/* Ajuste responsivo específico para a imagem do animal */
-.detalhes-imagem-container {
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    border-radius: 15px;
-    position: relative;
+/* Responsividade */
+@media (max-width: 1200px) {
+  .detalhes-wrapper {
+    gap: 30px;
+    padding: 30px;
+  }
+  
+  .detalhes-imagem-container {
+    height: 400px;
+  }
+  
+  .detalhes-titulo {
+    font-size: 2.5rem;
+  }
 }
 
-.detalhes-foto {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;      /* mantém proporção e corta apenas bordas */
-    object-position: center; /* centraliza o foco */
-    display: block;
+@media (max-width: 992px) {
+  .detalhes-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 25px;
+  }
+  
+  .detalhes-imagem-container {
+    height: 350px;
+  }
+  
+  .detalhes-titulo {
+    font-size: 2.2rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .btn-adotar-grande {
+    padding: 15px 25px;
+    font-size: 1rem;
+  }
 }
 
-/* Para telas menores */
 @media (max-width: 768px) {
-    .detalhes-imagem-container {
-        height: 300px;
-    }
+  .detalhes-wrapper {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .detalhes-imagem-container {
+    height: 300px;
+  }
+  
+  .detalhes-titulo {
+    font-size: 1.8rem;
+  }
+  
+  .tags-container {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .tag {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .info-item strong {
+    font-size: 0.8rem;
+  }
+  
+  .info-item span {
+    font-size: 1rem;
+  }
+  
+  .descricao-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  .descricao-section p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  
+  .btn-adotar-grande {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    gap: 8px;
+  }
+  
+  .back-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 480px) {
-    .detalhes-imagem-container {
-        height: 240px;
-    }
+  .detalhes-wrapper {
+    padding: 15px;
+    gap: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+  
+  .detalhes-imagem-container {
+    height: 240px;
+    border-radius: 10px;
+  }
+  
+  .detalhes-titulo {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .tags-container {
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .tag {
+    padding: 4px 10px;
+    font-size: 0.7rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+  
+  .info-item {
+    padding: 5px 0;
+  }
+  
+  .info-item strong {
+    font-size: 0.75rem;
+  }
+  
+  .info-item span {
+    font-size: 0.9rem;
+  }
+  
+  .descricao-section h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  .descricao-section p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  .btn-adotar-grande {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+    gap: 5px;
+    flex-direction: column;
+  }
+  
+  .back-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    top: 10px;
+    left: 10px;
+  }
 }

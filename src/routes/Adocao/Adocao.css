@@ -1,12 +1,10 @@
-/* Container principal da página de listagem */
-.listagem-container {
+﻿.listagem-container {
     width: 90%;
     max-width: 1200px;
     margin: 2rem auto;
     font-family: Arial, sans-serif;
 }
 
-/* Cabeçalho da listagem */
 .listagem-header {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -27,7 +25,6 @@
     color: #666;
 }
 
-/* Mensagens de loading e erro */
 .loading-message,
 .error-message {
     text-align: center;
@@ -39,14 +36,12 @@
     color: #d9534f;
 }
 
-/* Grid para os cards dos animais */
 .animais-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
-/* Estilo individual do Card do animal */
 .animal-card {
     background: #fff;
     border: 1px solid #ddd;
@@ -61,15 +56,14 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Foto do animal */
 .animal-foto {
     width: 100%;
     height: 250px;
     object-fit: cover;
     display: block;
+    background-color: #f2f2f2;
 }
 
-/* Informações abaixo da foto */
 .animal-info {
     padding: 1.5rem;
 }
@@ -93,7 +87,6 @@
     margin-top: 1rem;
     margin-bottom: 1.5rem;
     min-height: 40px;
-
 }
 
 .btn-adotar {
@@ -115,21 +108,136 @@
 
 .padding-container {
     padding: 80px 0;
-
 }
 
+/* Responsividade */
+@media (max-width: 1200px) {
+    .animais-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .listagem-header h1 {
+        font-size: 2.2rem;
+    }
+}
 
-.animal-foto {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;       
-    object-position: center; 
-    display: block;
-    background-color: #f2f2f2; 
+@media (max-width: 992px) {
+    .listagem-container {
+        width: 95%;
+    }
+    
+    .animais-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.2rem;
+    }
+    
+    .listagem-header h1 {
+        font-size: 2rem;
+    }
+    
+    .listagem-header p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .listagem-container {
+        margin: 1rem auto;
+    }
+    
+    .animais-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    
+    .animal-foto {
+        height: 200px;
+    }
+    
+    .animal-info {
+        padding: 1rem;
+    }
+    
+    .animal-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .animal-info p {
+        font-size: 0.85rem;
+    }
+    
+    .listagem-header h1 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .listagem-header p {
+        font-size: 0.9rem;
+    }
+    
+    .padding-container {
+        padding: 40px 0;
+    }
 }
 
 @media (max-width: 480px) {
+    .listagem-container {
+        width: 100%;
+        margin: 1rem 0;
+    }
+    
+    .animais-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
     .animal-foto {
-        height: 200px;
+        height: 180px;
+    }
+    
+    .animal-card {
+        border-radius: 5px;
+    }
+    
+    .animal-info {
+        padding: 0.8rem;
+    }
+    
+    .animal-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .animal-info p {
+        font-size: 0.8rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .animal-info .animal-descricao {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .btn-adotar {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .listagem-header {
+        margin-bottom: 1.5rem;
+    }
+    
+    .listagem-header h1 {
+        font-size: 1.3rem;
+        gap: 5px;
+    }
+    
+    .listagem-header p {
+        font-size: 0.85rem;
+    }
+    
+    .padding-container {
+        padding: 30px 0;
     }
 }
